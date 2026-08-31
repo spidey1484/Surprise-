@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#08060c" />
+    <title>One Year of Us — A Love Letter</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="noise" aria-hidden="true"></div>
+    <div class="cursor-glow" aria-hidden="true"></div>
+    <canvas id="stars" aria-hidden="true"></canvas>
+
+    <header class="nav">
+      <a class="brand" href="#top" aria-label="Home">
+        <span class="brand-mark">♡</span>
+        <span>our first year</span>
+      </a>
+      <nav>
+        <a href="#story">our story</a>
+        <a href="#letter">the letter</a>
+        <a href="#forever">forever</a>
+      </nav>
+      <button class="sound-button" id="soundButton" type="button" aria-label="Play a little love song">
+        <span class="sound-icon">♪</span><span class="sound-label">sound on</span>
+      </button>
+    </header>
+
+    <main id="top">
+      <section class="hero section">
+        <p class="eyebrow reveal">01 · 09 · 2025 — 01 · 09 · 2026</p>
+        <div class="hero-copy">
+          <p class="tiny-intro reveal">for <span class="name-slot">her name</span>, my favourite place to be</p>
+          <h1 class="hero-title">
+            <span class="line clip"><em>one year</em></span>
+            <span class="line clip">of us.</span>
+          </h1>
+          <p class="hero-note reveal">365 days, countless little moments,<br />and a love I never want to stop choosing.</p>
+        </div>
+        <div class="hero-bottom reveal">
+          <div class="orbit" aria-hidden="true"><span></span></div>
+          <a href="#story" class="scroll-cue"><span>begin our story</span><i>↓</i></a>
+          <p class="counter"><strong id="dayCounter">365</strong> days<br />of loving you</p>
+        </div>
+      </section>
+
+      <section class="quote-band section-pad reveal-block">
+        <span class="quote-mark">“</span>
+        <p>I did not know a year could hold<br />so much <em>magic.</em></p>
+        <span class="quote-mark close">”</span>
+      </section>
+
+      <section id="story" class="story section-pad">
+        <div class="section-heading reveal-block">
+          <p class="eyebrow">chapter one</p>
+          <h2>Every great love<br />is made of <em>little things.</em></h2>
+          <p class="section-lede">Not the big, perfect moments—though we had those too. I mean the quiet ones that became my whole world.</p>
+        </div>
+
+        <div class="memory-grid">
+          <article class="memory memory-tall tilt-card reveal-block" data-tilt>
+            <div class="memory-image memory-image-1">
+              <span class="photo-note">add your favourite photo</span>
+            </div>
+            <div class="memory-caption"><span>01</span><p>That first smile<br /><em>that started it all.</em></p></div>
+          </article>
+          <article class="memory memory-note reveal-block">
+            <span class="scribble">✦</span>
+            <p>somehow,<br />in all this <em>chaos</em><br />I found my<br /><strong>home.</strong></p>
+            <small>— with you</small>
+          </article>
+          <article class="memory memory-wide tilt-card reveal-block" data-tilt>
+            <div class="memory-image memory-image-2">
+              <span class="photo-note">a moment worth keeping</span>
+            </div>
+            <div class="memory-caption"><span>02</span><p>Us, exactly as<br /><em>we are.</em></p></div>
+          </article>
+          <article class="memory memory-words reveal-block">
+            <p class="eyebrow">my favourite things about you</p>
+            <ul>
+              <li>the way you make ordinary feel cinematic</li>
+              <li>your laugh—my favourite sound in every room</li>
+              <li>the kindness you give without thinking twice</li>
+              <li>every version of you, always</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section class="timeline section-pad">
+        <div class="timeline-header reveal-block">
+          <p class="eyebrow">a tiny archive</p>
+          <h2>Twelve months.<br /><em>One extraordinary us.</em></h2>
+        </div>
+        <div class="timeline-track" aria-label="Our year together">
+          <div class="timeline-line" aria-hidden="true"></div>
+          <article class="moment reveal-block"><span class="dot"></span><p class="month">month 01</p><h3>Hello, you.</h3><p>Where a simple beginning became something I could not stop thinking about.</p></article>
+          <article class="moment reveal-block"><span class="dot"></span><p class="month">month 03</p><h3>Inside jokes.</h3><p>Our own tiny universe, built one ridiculous laugh at a time.</p></article>
+          <article class="moment featured-moment reveal-block"><span class="dot"></span><p class="month">month 06</p><h3>Halfway home.</h3><p>By then, loving you already felt as natural as breathing.</p></article>
+          <article class="moment reveal-block"><span class="dot"></span><p class="month">month 09</p><h3>Every day, again.</h3><p>Not because it was easy. Because it was you.</p></article>
+          <article class="moment reveal-block"><span class="dot"></span><p class="month">month 12</p><h3>Still my wish.</h3><p>One year in—and I would choose this story a thousand times more.</p></article>
+        </div>
+      </section>
+
+      <section id="letter" class="letter-section section-pad">
+        <div class="letter-orbit orbit" aria-hidden="true"><span></span></div>
+        <div class="letter-intro reveal-block">
+          <p class="eyebrow">a note kept just for you</p>
+          <h2>There are some things<br />I only know how to say<br /><em>when it’s quiet.</em></h2>
+          <button id="openLetter" class="primary-button" type="button"><span>open my letter</span><i>↗</i></button>
+        </div>
+        <div class="envelope reveal-block" id="envelope" aria-hidden="true">
+          <div class="envelope-flap"></div>
+          <div class="envelope-heart">♡</div>
+        </div>
+      </section>
+
+      <section id="forever" class="finale section">
+        <p class="eyebrow reveal">and now, for the next chapter</p>
+        <h2 class="reveal">Happy one year,<br /><span class="name-slot">my love.</span></h2>
+        <p class="finale-copy reveal">Thank you for being the brightest part of every day.<br />Here’s to all the ordinary Tuesdays, the wild dreams,<br />and every beautiful version of us still ahead.</p>
+        <button class="wish-button reveal" id="wishButton" type="button"><span>make a wish for us</span><b>✦</b></button>
+        <p class="signature reveal">forever yours,<br /><em>your name</em></p>
+      </section>
+    </main>
+
+    <div class="letter-modal" id="letterModal" role="dialog" aria-modal="true" aria-labelledby="letterTitle" hidden>
+      <button class="close-modal" id="closeLetter" type="button" aria-label="Close letter">×</button>
+      <article class="letter-paper">
+        <p class="eyebrow">to <span class="name-slot">her name</span></p>
+        <h2 id="letterTitle">My darling,</h2>
+        <div class="letter-body">
+          <p>A year ago, I had no idea that meeting you would make the world look different. But somehow, slowly and then all at once, you became the person I wanted to tell everything to.</p>
+          <p>Thank you for every laugh, every patient moment, every little way you have made this year feel softer, brighter, and more alive. You make being loved feel like the safest, most beautiful thing.</p>
+          <p>I cannot promise that every day will be perfect. But I can promise that I will keep showing up—for the quiet days, the messy days, and every wonderful day in between. I will keep choosing you.</p>
+          <p>Happy one year, my love. This is only the beginning.</p>
+        </div>
+        <p class="letter-signoff">With all my heart,<br /><em>your name</em></p>
+      </article>
+    </div>
+
+    <div class="toast" id="toast" role="status">A wish has been sent to the stars. ✦</div>
+    <script src="script.js"></script>
+  </body>
+</html>
