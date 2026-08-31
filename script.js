@@ -1,7 +1,7 @@
 const $ = (selector) => document.querySelector(selector);
 
 // Update this one date to make the counter personal (YYYY-MM-DD).
-const anniversaryStart = new Date('2025-09-02T00:00:00');
+const anniversaryStart = new Date('2025-09-01T00:00:00');
 const today = new Date();
 const daysTogether = Math.max(1, Math.floor((today - anniversaryStart) / 86400000));
 $('#dayCounter').textContent = daysTogether.toLocaleString();
@@ -57,25 +57,26 @@ $('#closeLetter').addEventListener('click', closeLetter);
 modal.addEventListener('click', (event) => { if (event.target === modal) closeLetter(); });
 window.addEventListener('keydown', (event) => { if (event.key === 'Escape' && !modal.hidden) closeLetter(); });
 
-// Background instrumental music.
+// Background instrumental. Phones allow playback once the visitor taps this button.
 const music = $('#bgMusic');
+music.volume = 0.35;
 let soundOn = false;
 
 $('#soundButton').addEventListener('click', async () => {
   soundOn = !soundOn;
-
-  $('#soundButton').querySelector('.sound-label').textContent =
-    soundOn ? 'music on' : 'sound on';
+  const label = $('#soundButton').querySelector('.sound-label');
 
   if (soundOn) {
     try {
       await music.play();
+      label.textContent = 'Music On';
     } catch {
       soundOn = false;
-      $('#soundButton').querySelector('.sound-label').textContent = 'sound on';
+      label.textContent = 'Sound On';
     }
   } else {
     music.pause();
+    label.textContent = 'Sound On';
   }
 });
 
