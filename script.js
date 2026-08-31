@@ -57,36 +57,31 @@ $('#closeLetter').addEventListener('click', closeLetter);
 modal.addEventListener('click', (event) => { if (event.target === modal) closeLetter(); });
 window.addEventListener('keydown', (event) => { if (event.key === 'Escape' && !modal.hidden) closeLetter(); });
 
-// A gentle in-browser chime — no music files or autoplay needed.
-let audioContext;
+// Background instrumental music.
+const music = $('#bgMusic');
 let soundOn = false;
-function playChime() {
-  audioContext ??= new (window.AudioContext || window.webkitAudioContext)();
-  const notes = [523.25, 659.25, 783.99, 1046.5];
-  const start = audioContext.currentTime;
-  notes.forEach((frequency, index) => {
-    const oscillator = audioContext.createOscillator();
-    const gain = audioContext.createGain();
-    oscillator.type = 'sine';
-    oscillator.frequency.value = frequency;
-    gain.gain.setValueAtTime(0.0001, start + index * .13);
-    gain.gain.exponentialRampToValueAtTime(.055, start + index * .13 + .03);
-    gain.gain.exponentialRampToValueAtTime(0.0001, start + index * .13 + 1.35);
-    oscillator.connect(gain).connect(audioContext.destination);
-    oscillator.start(start + index * .13);
-    oscillator.stop(start + index * .13 + 1.4);
-  });
-}
-$('#soundButton').addEventListener('click', () => {
+
+$('#soundButton').addEventListener('click', async () => {
   soundOn = !soundOn;
-  $('#soundButton').querySelector('.sound-label').textContent = soundOn ? 'playing' : 'sound on';
-  if (soundOn) playChime();
+
+  $('#soundButton').querySelector('.sound-label').textContent =
+    soundOn ? 'music on' : 'sound on';
+
+  if (soundOn) {
+    try {
+      await music.play();
+    } catch {
+      soundOn = false;
+      $('#soundButton').querySelector('.sound-label').textContent = 'sound on';
+    }
+  } else {
+    music.pause();
+  }
 });
 
 // Finale wish, with a small burst of stars.
 const toast = $('#toast');
 $('#wishButton').addEventListener('click', () => {
-  if (soundOn) playChime();
   toast.classList.add('show');
   setTimeout(() => toast.classList.remove('show'), 3400);
   for (let i = 0; i < 32; i += 1) createSpark();
