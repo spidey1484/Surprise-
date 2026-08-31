@@ -1,7 +1,7 @@
 const $ = (selector) => document.querySelector(selector);
 
 // Update this one date to make the counter personal (YYYY-MM-DD).
-const anniversaryStart = new Date('2025-09-01T00:00:00');
+const anniversaryStart = new Date('2025-09-02T00:00:00');
 const today = new Date();
 const daysTogether = Math.max(1, Math.floor((today - anniversaryStart) / 86400000));
 $('#dayCounter').textContent = daysTogether.toLocaleString();
